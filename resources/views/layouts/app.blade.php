@@ -1,41 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Aplicação')</title>
+    <title>@yield('title', 'Aplicação Segura')</title>
 
     <!-- CSS do Bootstrap e Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet">
 
     <style>
         :root {
-            /* Opção 1 - Azul Moderno */
-            --navbar-bg: #2563eb;
-            /* Azul vibrante */
+            --navbar-bg: #6a1b9a;
+            /* Roxo elegante */
             --navbar-text: #ffffff;
+            /* Texto branco */
 
-            /* Opção 2 - Roxo Elegante */
-            --navbar-bg: #6d28d9;
-            /* Roxo profundo */
-            --navbar-text: #ffffff;
-
-            /* Opção 3 - Verde Corporativo */
-            --navbar-bg: #059669;
-            /* Verde esmeralda */
-            --navbar-text: #ffffff;
-
-            /* Opção 4 - Gradiente Moderno */
-            --navbar-bg: linear-gradient(to right, #3b82f6, #2563eb);
-            --navbar-text: #ffffff;
+            --sidebar-bg: #212121;
+            /* Preto */
+            --sidebar-text: #e0e0e0;
+            /* Cinza claro */
+            --sidebar-hover: #ffb300;
+            /* Dourado */
         }
 
-        /* Adicione essa classe se escolher usar o gradiente */
         .navbar {
             background: var(--navbar-bg) !important;
+            color: var(--navbar-text) !important;
+        }
+
+        .navbar * {
+            color: var(--navbar-text) !important;
         }
 
         .sidebar {
@@ -43,9 +39,25 @@
             position: fixed;
             top: 0;
             left: 0;
-            padding-top: 70px;
+            width: 250px;
             background-color: var(--sidebar-bg);
-            border-right: 1px solid #dee2e6;
+            color: var(--sidebar-text);
+            padding-top: 70px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: var(--sidebar-text);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: var(--sidebar-hover);
         }
 
         .main-content {
@@ -54,29 +66,8 @@
             padding-top: 80px;
         }
 
-        .navbar {
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            background-color: var(--navbar-bg) !important;
-        }
-
-        .navbar * {
-            color: var(--navbar-text) !important;
-        }
-
-        .nav-link {
-            padding: 12px 16px;
-            color: #333;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .nav-link:hover {
-            background-color: var(--sidebar-hover);
-            border-radius: 4px;
+        .nav-icon {
+            font-size: 1.1rem;
         }
 
         .logo-img {
@@ -84,18 +75,8 @@
             width: auto;
         }
 
-        .dropdown-menu {
-            right: 0;
-            left: auto;
-        }
-
         .dropdown-menu * {
             color: #333 !important;
-        }
-
-        .nav-icon {
-            font-size: 1.1rem;
-            width: 24px;
         }
     </style>
 </head>
@@ -140,38 +121,23 @@
     </nav>
 
     <!-- Sidebar -->
-    <div class="sidebar" style="width: 250px;">
-        <div class="d-flex flex-column px-3">
-            <a href="/dashboard" class="nav-link">
-                <i class="bi bi-house-door nav-icon"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="/users" class="nav-link">
-                <i class="bi bi-people nav-icon"></i>
-                <span>Usuários</span>
-            </a>
-            <a href="/products" class="nav-link">
-                <i class="bi bi-box nav-icon"></i>
-                <span>Produtos</span>
-            </a>
-            <a href="/logs" class="nav-link">
-                <i class="bi bi-cart nav-icon"></i>
-                <span>Ver Logs</span>
-            </a>
-            <a href="/movies" class="nav-link">
-                <i class="bi bi-film nav-icon"></i>
-                <span>Filmes</span>
-            </a>
-
-            <a href="/reports" class="nav-link">
-                <i class="bi bi-graph-up nav-icon"></i>
-                <span>Relatórios</span>
-            </a>
-            <a href="/settings" class="nav-link">
-                <i class="bi bi-gear nav-icon"></i>
-                <span>Configurações</span>
-            </a>
-        </div>
+    <div class="sidebar">
+        <a href="/dashboard" class="nav-link">
+            <i class="bi bi-house-door nav-icon"></i>
+            <span>Dashboard</span>
+        </a>
+        <a href="/users" class="nav-link">
+            <i class="bi bi-people nav-icon"></i>
+            <span>Usuários</span>
+        </a>
+        <a href="/products" class="nav-link">
+            <i class="bi bi-box nav-icon"></i>
+            <span>Produtos</span>
+        </a>
+        <a href="/sensitive_data" class="nav-link">
+            <i class="bi bi-shield-lock nav-icon"></i>
+            <span>Segurança de Dados</span>
+        </a>
     </div>
 
     <!-- Conteúdo principal -->
