@@ -13,6 +13,8 @@ class UserObserver
             'model_id' => $user->id,
             'action' => 'create',
             'changes' => $user->toArray(),
+            'user_id' => $user->id,  
+
         ]);
     }
 

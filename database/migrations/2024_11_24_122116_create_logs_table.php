@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(); // Adiciona a coluna 'user_id'
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null'); // Define a chave estrangeira
             $table->string('model');
             $table->unsignedBigInteger('model_id')->nullable();
             $table->string('action'); // create, update, delete
             $table->json('changes')->nullable(); // Registra mudanças
+            $table->string('query')->nullable(); // Query da pesquisa, se houver
             $table->timestamps();
         });
     }

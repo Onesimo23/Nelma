@@ -14,9 +14,16 @@ class Log extends Model
         'model_id',
         'action',
         'changes',
+        'user_id',
     ];
 
     protected $casts = [
-        'changes' => 'array',
+        'changes' => 'array', // Converte as alterações em um array
     ];
+
+    // Relacionamento com o usuário (se necessário)
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

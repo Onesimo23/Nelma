@@ -126,13 +126,13 @@
             <i class="bi bi-house-door nav-icon"></i>
             <span>Dashboard</span>
         </a>
-        <a href="/users" class="nav-link">
-            <i class="bi bi-people nav-icon"></i>
-            <span>Usuários</span>
+        <a href="/logs" class="nav-link">
+            <i class="bi bi-journal-text nav-icon"></i>
+            <span>Logs de Rastreamento</span>
         </a>
         <a href="/products" class="nav-link">
             <i class="bi bi-box nav-icon"></i>
-            <span>Produtos</span>
+            <span>Produtos(API)</span>
         </a>
         <a href="/sensitive_data" class="nav-link">
             <i class="bi bi-shield-lock nav-icon"></i>
