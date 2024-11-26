@@ -14,22 +14,9 @@ Route::resource('sensitive_data', SensitiveDataController::class);
 Route::get('/auth/github', [GithubController::class, 'redirectToGithub'])->name('auth.github');
 Route::get('/auth/github/callback', [GithubController::class, 'handleGithubCallback'])->name('auth.github.callback');
 
-Route::get('/movies', [MovieController::class, 'index'])->name('movies.index');
-Route::get('/movies/{movie_id}', [MovieController::class, 'show'])->name('movies.show');
-Route::get('/two-factor', [TwoFactorAuthController::class, 'show'])->name('auth.two-factor');
-Route::post('/two-factor', [TwoFactorAuthController::class, 'verify']);
-Route::post('/two-factor/resend', [TwoFactorAuthController::class, 'resend'])->name('auth.two-factor.resend');
-
-
-Route::middleware('auth')->group(function () {
-    Route::get('/settings', [SettingsController::class, 'index'])->name('settings.index');
-    Route::post('/settings/two-factor', [SettingsController::class, 'toggleTwoFactor'])->name('settings.toggleTwoFactor');
-});
 
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-
-// Route::resource('products', ProductController::class);
 
 Route::get('/', function () {
     return view('welcome');
