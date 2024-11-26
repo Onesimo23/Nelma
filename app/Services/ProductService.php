@@ -21,12 +21,12 @@ class ProductService
 
     public function searchProduct($query)
     {
-        // Fake Store API não suporta busca por texto diretamente
-        // Usamos um filtro básico nos resultados como alternativa
         $products = Http::get("{$this->apiUrl}/products")->json();
 
+        // Filtrar produtos localmente com base no título
         return array_filter($products, function ($product) use ($query) {
-            return stripos($product['title'], $query) !== false;
+            return stripos($product['title'], $query) !== false || 
+                   stripos($product['description'], $query) !== false;
         });
     }
 
@@ -35,4 +35,10 @@ class ProductService
         $response = Http::get("{$this->apiUrl}/products/{$product_id}");
         return $response->json();
     }
+    public function convertToMetical($price)
+{
+    $exchangeRate = 63.00; // Taxa de câmbio fictícia (1 USD = 63 MZN)
+    return $price * $exchangeRate;
+}
+
 }

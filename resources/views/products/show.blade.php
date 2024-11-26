@@ -14,7 +14,7 @@
                 <p>{{ $productDetails['description'] }}</p>
 
                 <h3>Preço:</h3>
-                <p><strong>${{ number_format($productDetails['price'], 2) }}</strong></p>
+                <p><strong>{{ number_format($productDetails['price'], 2) }} MZN</strong></p>
 
                 <h3>Categoria:</h3>
                 <p>{{ $productDetails['category'] }}</p>
